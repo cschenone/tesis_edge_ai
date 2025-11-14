@@ -1,0 +1,272 @@
+﻿# =============================================================================
+# ARCHIVO GITIGNORE - PROYECTO DE TESIS EDGE AI
+# =============================================================================
+# OBJETIVO: Mantener el repositorio liviano y enfocado en el código fuente,
+#           excluyendo archivos generados automáticamente, datos pesados y
+#           configuraciones locales.
+# ESTRATEGIA: "Versionar solo lo esencial para reproducir la investigación"
+# =============================================================================
+
+# =============================================================================
+# 🎯 ESTRATEGIA GENERAL
+# =============================================================================
+# ✅ VERSIONAR: Código, documentación, configuraciones base, scripts
+# ❌ IGNORAR: Datos, modelos entrenados, entornos, archivos temporales
+# 
+# Pregunta clave antes de agregar un archivo:
+# "¿Es necesario para que otra persona reproduzca mi investigación?"
+# =============================================================================
+
+# =============================================================================
+# 1. 🐍 ENTORNOS DE PYTHON Y CONFIGURACIÓN
+# =============================================================================
+# OBJETIVO: Excluir entornos virtuales que se pueden recrear con requirements
+# RAZÓN: Ocupan mucho espacio y son específicos de cada computadora
+# =============================================================================
+venv_tesis/
+venv/
+env/
+.venv/
+ENV/
+.python-version
+
+# =============================================================================
+# 2. 🔐 ARCHIVOS SENSIBLES Y CONFIGURACIÓN LOCAL  
+# =============================================================================
+# OBJETIVO: Proteger información sensible y configuraciones personales
+# RAZÓN: Contienen claves, rutas locales y configuraciones específicas
+# =============================================================================
+.env
+.env.*
+.local
+configs/local_*
+configs/development.py
+configs/production.py
+
+# =============================================================================
+# 3. 💾 DATOS Y DATASETS 
+# =============================================================================
+# OBJETIVO: Excluir datasets y archivos de datos pesados
+# RAZÓN: Los datos son muy grandes y se pueden descargar por separado
+# RECOMENDACIÓN: Usar datos/README.md para explicar cómo obtener los datos
+# =============================================================================
+datos/
+*.csv
+*.json
+*.parquet
+*.feather
+*.hdf5
+*.h5
+*.xlsx
+
+# =============================================================================
+# 4. 🧠 MODELOS ENTRENADOS Y PESOS
+# =============================================================================
+# OBJETIVO: Excluir modelos entrenados y archivos de pesos
+# RAZÓN: Son muy grandes y se pueden regenerar con el código
+# RECOMENDACIÓN: Los modelos deben poder reproducirse ejecutando los scripts
+# =============================================================================
+modelos/
+*.pkl
+*.joblib
+*.pickle
+*.model
+*.pt
+*.pth
+*.onnx
+checkpoints/
+weights/
+training_output/
+
+# =============================================================================
+# 5. 📊 RESULTADOS Y EXPERIMENTOS
+# =============================================================================
+# OBJETIVO: Excluir resultados generados automáticamente
+# RAZÓN: Se regeneran ejecutando los experimentos
+# RECOMENDACIÓN: Guardar solo métricas y resúmenes, no datos completos
+# =============================================================================
+resultados/
+experimentos/outputs/
+experimentos/logs/
+*.results
+*.metrics
+
+# =============================================================================
+# 6. 📓 NOTEBOOKS - OUTPUTS Y CACHÉ
+# =============================================================================
+# OBJETIVO: Excluir outputs de notebooks para evitar conflictos
+# RAZÓN: Los outputs hacen los notebooks muy grandes y causan conflictos
+# RECOMENDACIÓN: Versionar notebooks sin outputs (Clear All Outputs antes de commit)
+# =============================================================================
+notebooks/.ipynb_checkpoints
+notebooks/*.log
+**/.ipynb_checkpoints/
+
+# =============================================================================
+# 7. 🐍 ARCHIVOS GENERADOS POR PYTHON
+# =============================================================================
+# OBJETIVO: Excluir archivos compilados y de construcción
+# RAZÓN: Se generan automáticamente al ejecutar el código
+# =============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.c
+build/
+dist/
+*.egg-info/
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+
+# =============================================================================
+# 8. 🗂️ BACKUPS Y ARCHIVOS TEMPORALES
+# =============================================================================
+# OBJETIVO: Excluir copias de seguridad y archivos temporales
+# RAZÓN: No son parte del proyecto, son auxiliares
+# =============================================================================
+backups/
+*.backup
+*_backup.txt
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# =============================================================================
+# 9. 🐳 DOCKER - CONFIGURACIONES LOCALES
+# =============================================================================
+# OBJETIVO: Excluir configuraciones locales de Docker
+# RAZÓN: docker-compose.yml es suficiente para recrear los contenedores
+# =============================================================================
+docker-compose.override.yml
+.docker/
+
+# =============================================================================
+# 10. 📝 LOGS Y ARCHIVOS DE REGISTRO
+# =============================================================================
+# OBJETIVO: Excluir archivos de log generados automáticamente
+# RAZÓN: Son temporales y específicos de cada ejecución
+# =============================================================================
+*.log
+logs/
+**/*.log
+
+# =============================================================================
+# 11. 🛠️ SOFTWARE E INSTALADORES
+# =============================================================================
+# OBJETIVO: Excluir instaladores y binarios grandes
+# RAZÓN: Se pueden descargar de sus fuentes oficiales
+# RECOMENDACIÓN: Guardar solo instrucciones y scripts de verificación
+# =============================================================================
+software/**/*
+!software/**/README.md
+!software/**/instrucciones*.txt
+!software/**/*.ps1
+!software/**/requirements*.txt
+
+# =============================================================================
+# 12. 💻 ARCHIVOS DEL SISTEMA OPERATIVO
+# =============================================================================
+# OBJETIVO: Excluir archivos específicos del sistema operativo
+# RAZÓN: No son parte del proyecto, son generados por el SO
+# =============================================================================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+
+# =============================================================================
+# 13. 🔧 ARCHIVOS DE IDEs Y EDITORES
+# =============================================================================
+# OBJETIVO: Excluir configuraciones de editores de código
+# RAZÓN: Son preferencias personales, no parte del proyecto
+# =============================================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =============================================================================
+# ✅ EXCEPCIONES - LO QUE SÍ DEBE VERSIONARSE
+# =============================================================================
+# Estos son los archivos esenciales para entender y usar el proyecto
+# =============================================================================
+
+# 📖 DOCUMENTACIÓN PRINCIPAL
+!.gitignore
+!README.md
+!Progreso_tesis.md
+
+# 🐳 CONFIGURACIÓN DOCKER PRINCIPAL
+!docker-compose.yml
+!Dockerfile
+
+# 💻 CÓDIGO FUENTE (TODO el contenido)
+!codigo/
+!scripts/
+
+# 📋 CONFIGURACIONES BASE
+!configs/
+!requerimientos/
+
+# 📚 DOCUMENTACIÓN TÉCNICA  
+!documentacion/
+
+# 📓 NOTEBOOKS (sin outputs)
+!notebooks/
+
+# 🧪 EXPERIMENTOS (código y configuración, no resultados)
+!experimentos/
+
+# 📊 INSTRUCCIONES PARA DATOS Y MODELOS
+!datos/README.md
+
+# 🛠️ DOCUMENTACIÓN DE SOFTWARE
+!software/**/README.md
+!software/**/instrucciones*.txt
+!software/**/*.ps1
+!software/**/requirements*.txt
+
+# =============================================================================
+# 🎯 RECOMENDACIONES FINALES
+# =============================================================================
+#
+# ✅ QUÉ AGREGAR AL REPOSITORIO:
+#   - Código fuente y scripts
+#   - Documentación y READMEs  
+#   - Configuraciones base y templates
+#   - Requirements y dependencias
+#   - Notebooks SIN outputs
+#   - Metadatos de experimentos
+#
+# ❌ QUÉ NO AGREGAR:
+#   - Datasets y archivos de datos grandes
+#   - Modelos entrenados y pesos
+#   - Entornos virtuales
+#   - Archivos de log y temporales
+#   - Resultados generados automáticamente
+#   - Instaladores y binarios
+#   - Configuraciones locales
+#
+# 🔄 FLUJO RECOMENDADO:
+#   1. Escribir código y documentación → ✅ AGREGAR
+#   2. Ejecutar experimentos → ❌ NO agregar resultados
+#   3. Entrenar modelos → ❌ NO agregar modelos
+#   4. Limpiar outputs de notebooks → ✅ AGREGAR notebooks limpios
+#   5. Commit y push solo del código esencial
+#
+# =============================================================================

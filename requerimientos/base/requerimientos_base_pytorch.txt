@@ -1,0 +1,31 @@
+# =============================================
+# BASE PYTORCH - CEREBRO PRINCIPAL TESIS
+# =============================================
+# ✅ Stack principal con dependencias compatibles
+# 🎯 PyTorch 1.12.1 + herramientas optimizadas para edge
+# 💡 USO: Para desarrollo principal y experimentos
+
+# 🔗 INCLUIR DEPENDENCIAS COMUNES (compatibles)
+-r requerimientos_base_comun.txt
+
+# 🧠 CORE - PYTORCH (versiones compatibles entre sí)
+torch==1.12.1
+torchvision==0.13.1
+torchaudio==0.12.1
+
+# ⚡ PYTORCH LIGHTNING (compatible con torch 1.12.1)
+pytorch-lightning==1.9.4
+
+# 🎯 OPTIMIZACIÓN PARA EDGE
+onnx==1.14.1
+onnxruntime==1.16.1
+
+# 📊 MÉTRICAS Y EVALUACIÓN
+torchmetrics==0.11.4
+
+# 🔧 UTILIDADES PYTORCH
+torchinfo==1.7.2
+
+# 🚀 ACELERACIÓN (opcional para GPU)
+# nvidia-ml-py==12.535.108  # ← OPCIONAL: Solo si hay GPU NVIDIA
+

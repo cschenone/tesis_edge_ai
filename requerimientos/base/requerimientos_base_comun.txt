@@ -1,0 +1,28 @@
+# =============================================
+# DEPENDENCIAS BASE COMUNES - TESIS EDGE AI
+# =============================================
+# ✅ Dependencias compartidas por TODOS los entornos
+# 🎯 Versiones compatibles con PyTorch 1.12.1 y TensorFlow 2.10.0
+
+# 👁️ PROCESAMIENTO VISUAL (compatible con ambos frameworks)
+opencv-python==4.6.0.66
+Pillow==9.3.0
+
+# 📊 ANÁLISIS DE DATOS (versiones compatibles con PyTorch 1.12.1)
+numpy==1.21.6           # ← CORREGIDO: Compatible con PyTorch 1.12.1
+pandas==1.5.3
+
+# 🧮 MATEMÁTICAS Y CIENTÍFICAS
+scipy==1.10.1
+
+# 🎯 MACHINE LEARNING TRADICIONAL
+scikit-learn==1.2.0
+
+# 📈 VISUALIZACIÓN Y GRÁFICOS
+matplotlib==3.6.3
+seaborn==0.12.2
+
+# 📝 UTILIDADES GENERALES
+tqdm==4.64.1
+requests==2.28.2
+psutil==5.9.4           # ← NUEVO: Monitoreo de sistema

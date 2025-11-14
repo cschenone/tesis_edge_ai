@@ -1,0 +1,172 @@
+﻿# =============================================
+# DOCKER COMPOSE - TESIS EDGE AI
+# =============================================
+# 🎯 ESTRATEGIA: Orquestación multi-contexto para investigación en Edge AI
+# 🎯 OBJETIVO: Entornos especializados para desarrollo, experimentación y deployment
+# 📁 COHERENCIA: Excelente con estructura modular del proyecto
+# 🏗️  ARQUITECTURA: Dual-framework (PyTorch principal + TensorFlow comparativo)
+
+version: '3.10'
+
+services:
+  # ==================== PYTORCH (FRAMEWORK PRINCIPAL) ====================
+  # 🎯 CONTEXTO: Desarrollo interactivo y experimentación principal
+  # 📍 COHERENCIA: ✅ Alineado con requerimientos/desarrollo_pytorch.txt
+  
+  desarrollo-pytorch:
+    build:
+      context: .
+      target: desarrollo-pytorch    # 🎯 Etapa Dockerfile específica
+    image: tesis-desarrollo-pytorch:3.10
+    container_name: tesis-desarrollo-pytorch
+    ports:
+      - "8888:8888"    # 🎯 Jupyter Lab - Desarrollo interactivo
+      - "5678:5678"    # 🎯 Debugging - Depuración remota
+    volumes:
+      - ./codigo:/app/codigo                    # 📍 Código fuente
+      - ./notebooks:/app/notebooks              # 📍 Experimentación Jupyter
+      - ./configs:/app/configs                  # 📍 Configuraciones
+      - ./documentacion:/app/documentacion      # 📍 Documentación
+      - ./datos:/app/datos                      # 📍 Datos del proyecto
+      - ./experimentos:/app/experimentos        # 📍 Resultados experimentales
+    environment:
+      - JUPYTER_TOKEN=tesis2024                 # 🔐 Seguridad básica
+      - PYTHONPATH=/app/codigo:/app/codigo/Componentes  # 🐍 Ruta módulos Python
+    restart: unless-stopped
+    stdin_open: true    # 🎯 Interactividad
+    tty: true           # 🎯 Terminal virtual
+
+  # 🎯 CONTEXTO: Entrenamiento y tracking de experimentos
+  # 📍 COHERENCIA: ✅ Alineado con requerimientos/experimentos_pytorch.txt
+  experiments-pytorch:
+    build:
+      context: .
+      target: experiments-pytorch
+    image: tesis-experiments-pytorch:3.10
+    container_name: tesis-experiments-pytorch
+    ports:
+      - "5000:5000"    # 🎯 MLflow - Tracking de experimentos
+    volumes:
+      - ./codigo:/app/codigo
+      - ./experimentos:/app/experimentos        # 📍 MLflow runs + W&B
+      - ./datos:/app/datos
+      - ./modelos:/app/modelos                  # 📍 Checkpoints y modelos
+      - ./configs:/app/configs
+      - ./resultados:/app/resultados            # 📍 Métricas y análisis
+    environment:
+      - PYTHONPATH=/app/codigo:/app/codigo/Componentes
+      - MLFLOW_TRACKING_URI=/app/experimentos/mlruns    # 📊 Tracking MLflow
+      - WANDB_DIR=/app/experimentos/wandb               # 📊 Tracking Weights & Biases
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]    # 🎯 Aceleración GPU para entrenamiento
+    restart: unless-stopped
+
+  # 🎯 CONTEXTO: Deployment optimizado para edge computing
+  # 📍 COHERENCIA: ✅ Alineado con requerimientos/edge_pytorch.txt
+  edge-pytorch:
+    build:
+      context: .
+      target: edge-pytorch
+    image: tesis-edge-pytorch:3.10
+    container_name: tesis-edge-pytorch
+    platform: linux/arm64    # 🎯 Optimizado para arquitectura ARM (edge devices)
+    volumes:
+      - ./codigo:/app/codigo
+      - ./modelos:/app/modelos                  # 📍 Modelos optimizados
+      - ./configs:/app/configs
+      - ./resultados:/app/resultados            # 📍 Resultados edge
+    environment:
+      - PYTHONPATH=/app/codigo:/app/codigo/Componentes
+      - OPTIMIZE_FOR_EDGE=true                  # 🎯 Flags de optimización
+    restart: unless-stopped
+
+  # ==================== TENSORFLOW (FRAMEWORK COMPARATIVO) ====================
+  # 🎯 ESTRATEGIA: Framework secundario para análisis comparativo
+  # 📍 COHERENCIA: ✅ Permite validación cruzada de resultados
+  
+  # 🎯 CONTEXTO: Desarrollo TensorFlow para comparativas
+  # 📍 COHERENCIA: ✅ Alineado con requerimientos/desarrollo_tensorflow.txt
+  desarrollo-tensorflow:
+    build:
+      context: .
+      target: desarrollo-tensorflow
+    image: tesis-desarrollo-tensorflow:3.10
+    container_name: tesis-desarrollo-tensorflow
+    ports:
+      - "8889:8889"    # 🎯 Puerto diferente para coexistencia
+      - "5679:5679"    # 🎯 Debugging TensorFlow
+    volumes:
+      - ./codigo:/app/codigo
+      - ./notebooks:/app/notebooks
+      - ./configs:/app/configs
+      - ./documentacion:/app/documentacion
+      - ./datos:/app/datos
+      - ./experimentos:/app/experimentos
+    environment:
+      - JUPYTER_TOKEN=tesis2024
+      - PYTHONPATH=/app/codigo:/app/codigo/Componentes
+    restart: unless-stopped
+
+  # 🎯 CONTEXTO: Experimentos TensorFlow comparativos
+  # 📍 COHERENCIA: ✅ Alineado con requerimientos/experimentos_tensorflow.txt
+  experiments-tensorflow:
+    build:
+      context: .
+      target: experiments-tensorflow
+    image: tesis-experiments-tensorflow:3.10
+    container_name: tesis-experiments-tensorflow
+    ports:
+      - "5001:5001"    # 🎯 MLflow separado para TensorFlow
+    volumes:
+      - ./codigo:/app/codigo
+      - ./experimentos:/app/experimentos
+      - ./datos:/app/datos
+      - ./modelos:/app/modelos
+      - ./configs:/app/configs
+      - ./resultados:/app/resultados
+    environment:
+      - PYTHONPATH=/app/codigo:/app/codigo/Componentes
+      - MLFLOW_TRACKING_URI=/app/experimentos/comparativas/mlruns    # 📊 Tracking separado
+      - WANDB_DIR=/app/experimentos/comparativas/wandb
+    restart: unless-stopped
+
+  # 🎯 CONTEXTO: Deployment edge con TensorFlow
+  # 📍 COHERENCIA: ✅ Alineado con requerimientos/edge_tensorflow.txt
+  edge-tensorflow:
+    build:
+      context: .
+      target: edge-tensorflow
+    image: tesis-edge-tensorflow:3.10
+    container_name: tesis-edge-tensorflow
+    platform: linux/arm64    # 🎯 Misma arquitectura para comparativas justas
+    volumes:
+      - ./codigo:/app/codigo
+      - ./modelos:/app/modelos
+      - ./configs:/app/configs
+      - ./resultados:/app/resultados
+    environment:
+      - PYTHONPATH=/app/codigo:/app/codigo/Componentes
+      - OPTIMIZE_FOR_EDGE=true
+    restart: unless-stopped
+
+  # ==================== SERVICIOS COMPARTIDOS ====================
+  # 🎯 OBJETIVO: Monitoreo y visualización del ecosistema
+  # 📍 COHERENCIA: ✅ Herramientas auxiliares para gestión
+  
+  monitor:
+    image: docker.io/dockersamples/visualizer:latest
+    container_name: tesis-monitor
+    ports:
+      - "8080:8080"    # 🎯 Dashboard visual de contenedores
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock    # 📍 Acceso a Docker API
+    restart: unless-stopped
+
+networks:
+  default:
+    name: tesis-network    # 🎯 Red aislada para el proyecto

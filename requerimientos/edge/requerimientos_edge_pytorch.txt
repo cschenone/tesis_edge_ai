@@ -1,0 +1,20 @@
+﻿# =============================================
+# EDGE PYTORCH - RASPBERRY PI COMPATIBLE
+# =============================================
+# ✅ PyTorch específico para ARM architecture
+# 🎯 Versiones oficialmente soportadas en Raspberry Pi
+
+# 🔗 BASE EDGE COMÚN (optimizado para ARM)
+-r requerimientos_edge_comun.txt
+
+# 🧠 PYTORCH PARA ARM (CORREGIDO - versiones reales)
+torch==1.8.0                     # ← CORREGIDO: Última versión oficial ARM
+torchvision==0.9.0               # ← CORREGIDO: Compatible con torch 1.8.0
+
+# 🎯 INFERENCIA OPTIMIZADA
+onnxruntime==1.16.1              # ← MANTENIDO: Soporta ARM
+onnx==1.14.1                     # ← NUEVO: Para conversión de modelos
+
+# ⚡ OPTIMIZACIONES ESPECÍFICAS
+piheatsink==0.0.6                # ← NUEVO: Monitoreo temperatura
+rpi-hardware-pwm==0.1.0          # ← NUEVO: Control PWM para ventiladores

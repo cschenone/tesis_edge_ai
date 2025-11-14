@@ -1,0 +1,18 @@
+﻿# =============================================
+# EDGE TENSORFLOW - TENSORFLOW LITE OPTIMIZADO
+# =============================================
+# ⚠️  Stack TensorFlow Lite para edge
+# 🎯 Máxima optimización para recursos limitados
+
+# 🔗 BASE EDGE COMÚN (optimizado para ARM)
+-r requerimientos_edge_comun.txt
+
+# 🤖 TENSORFLOW LITE (CORREGIDO - versión específica ARM)
+tflite-runtime==2.10.0           # ← MANTENIDO: Correcto para edge
+tensorflow==2.10.0               # ← NUEVO: Para conversión de modelos
+
+# 🎯 HERRAMIENTAS CONVERSIÓN
+tf2onnx==1.13.0                  # ← NUEVO: Conversión TF → ONNX
+
+# ⚡ OPTIMIZACIÓN MODELOS
+tensorflow-model-optimization==0.7.5  # ← NUEVO: Cuantización modelos

@@ -1,0 +1,21 @@
+﻿# =============================================
+# EXPERIMENTOS TENSORFLOW - COMPARATIVAS PROFESIONALES
+# =============================================
+# ⚠️  Stack experimentación TensorFlow para comparativas justas
+# 🎯 Equivalencias funcionales con herramientas PyTorch
+
+# 🔗 DESARROLLO TENSORFLOW + HERRAMIENTAS EXPERIMENTACIÓN COMUNES
+-r ../desarrollo/requerimientos_desarrollo_tensorflow.txt
+-r requerimientos_experimentos_comun.txt
+
+# 🚀 ENTRENAMIENTO DISTRIBUIDO TENSORFLOW
+tensorflow-datasets==4.9.2
+
+# 🔧 PROFILING ESPECÍFICO TENSORFLOW
+tensorboard-plugin-profile==2.10.0
+
+# ⚡ ESTRATEGIAS DISTRIBUIDAS
+tensorflow-io==0.31.0
+
+# 📊 OPTIMIZACIÓN MODELOS TF
+tensorflow-model-optimization==0.7.5

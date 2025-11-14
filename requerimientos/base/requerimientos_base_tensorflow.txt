@@ -1,0 +1,27 @@
+# =============================================
+# BASE TENSORFLOW - ALTERNATIVA COMPARATIVA
+# =============================================
+# ⚠️  Stack TensorFlow con equivalencias funcionales a PyTorch
+# 🎯 Para comparativas justas de rendimiento y optimización
+# ❌ ADVERTENCIA: No instalar junto con PyTorch simultáneamente
+
+# 🔗 INCLUIR DEPENDENCIAS COMUNES
+-r requerimientos_base_comun.txt
+
+# 🤖 CORE - TENSORFLOW (equivalente a PyTorch)
+tensorflow==2.10.0
+
+# 📊 HERRAMIENTAS TENSORFLOW (equivalente a torchmetrics)
+tensorboard==2.10.0
+
+# 👁️ VISIÓN COMPATIBLE TF (equivalente a torchvision)
+tf-explain==0.3.1
+
+# 🎯 OPTIMIZACIÓN TF (equivalente a ONNX para PyTorch)
+tensorflow-model-optimization==0.7.5
+
+# 🚀 OPTIMIZACIÓN EDGE (equivalente a ONNX Runtime)
+tensorflow-lite==2.10.0        # ← NUEVO: Para comparativas edge justas
+
+# 🔧 COMPATIBILIDAD
+protobuf==3.20.3

@@ -1,0 +1,25 @@
+# =============================================
+# DEPENDENCIAS EDGE COMUNES - RASPBERRY PI OPTIMIZADO
+# =============================================
+# ✅ Dependencias específicas para ARM/Raspberry Pi
+# 🎯 Versiones compatibles y optimizadas para hardware limitado
+
+# 👁️ VISIÓN COMPUTACIONAL OPTIMIZADA
+opencv-python==4.5.3.56          # ← CORREGIDO: Versión estable ARM
+Pillow==9.0.0                    # ← CORREGIDO: Compatible con ARM
+
+# 📊 ANÁLISIS BÁSICO (versiones ARM compatibles)
+numpy==1.21.6                    # ← CORREGIDO: Compatible con PyTorch ARM
+scikit-learn==1.0.2              # ← CORREGIDO: Versión ligera ARM
+
+# 🔧 MONITOREO RECURSOS (esencial para edge)
+psutil==5.8.0                    # ← CORREGIDO: Estable en ARM
+gpiozero==1.6.2                  # ← NUEVO: Control GPIO Raspberry Pi
+RPi.GPIO==0.7.0                  # ← NUEVO: Acceso hardware
+
+# 📷 CÁMARA RASPBERRY PI (existente)
+picamera2==0.3.7
+
+# 🚀 UTILIDADES EDGE
+pyserial==3.5                    # ← NUEVO: Comunicación serial
+adafruit-blinka==6.19.0          # ← NUEVO: Soporte hardware Adafruit

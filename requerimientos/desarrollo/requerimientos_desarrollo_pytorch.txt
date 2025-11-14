@@ -1,0 +1,20 @@
+# =============================================
+# DESARROLLO PYTORCH - HERRAMIENTAS ESPECÍFICAS
+# =============================================
+# ✅ Stack completo desarrollo PyTorch
+# 🎯 Incluye herramientas específicas para debugging y profiling PyTorch
+
+# 🔗 BASE PYTORCH + HERRAMIENTAS DESARROLLO COMUNES
+-r ../base/requerimientos_base_pytorch.txt
+-r requerimientos_desarrollo_comun.txt
+
+# 🔧 HERRAMIENTAS ESPECÍFICAS PYTORCH
+torchviz==0.0.2
+torch-tb-profiler==0.4.1
+torchsummary==1.5.1
+
+# 🎯 NOTEBOOKS PYTORCH
+torch-tb-profiler[notebook]==0.4.1
+
+# 🚀 OPTIMIZACIÓN DESARROLLO (opcional)
+# cuda-python==11.8.1  # ← Solo si hay GPU NVIDIA

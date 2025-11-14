@@ -1,0 +1,16 @@
+# =============================================
+# DESARROLLO TENSORFLOW - HERRAMIENTAS ESPECÍFICAS  
+# =============================================
+# ⚠️  Stack desarrollo TensorFlow para comparativas
+# 🎯 Herramientas específicas debugging y profiling TensorFlow
+
+# 🔗 BASE TENSORFLOW + HERRAMIENTAS DESARROLLO COMUNES
+-r ../base/requerimientos_base_tensorflow.txt
+-r requerimientos_desarrollo_comun.txt
+
+# 🔧 HERRAMIENTAS ESPECÍFICAS TENSORFLOW
+tensorboard-plugin-profile==2.10.0
+tf-explain==0.3.1
+
+# 📊 VISUALIZACIÓN TF
+tensorflow-datasets==4.9.2
