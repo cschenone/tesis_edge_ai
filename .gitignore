@@ -162,7 +162,12 @@ logs/
 # RAZÓN: Se pueden descargar de sus fuentes oficiales
 # RECOMENDACIÓN: Guardar solo instrucciones y scripts de verificación
 # =============================================================================
-software/**/*
+# Instaladores de software (SOLO ejecutables)
+software/**/*.exe
+software/**/*.msi
+software/**/*.dll
+
+# PERO permitir archivos de documentación e instrucciones
 !software/**/README.md
 !software/**/instrucciones*.txt
 !software/**/*.ps1
