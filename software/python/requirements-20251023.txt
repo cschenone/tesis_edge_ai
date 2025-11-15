@@ -1,0 +1,23 @@
+﻿# Herramientas principales para inteligencia artificial
+torch==1.12.1
+torchvision==0.13.1
+tensorflow==2.10.0
+
+# Para procesar imágenes y videos
+opencv-python==4.6.0.66
+Pillow==9.3.0
+
+# Para análisis de datos
+numpy==1.23.5
+pandas==1.5.3
+
+# Para gráficos y visualización
+matplotlib==3.6.3
+seaborn==0.12.2
+
+# Para machine learning
+scikit-learn==1.2.0
+
+# Otras herramientas útiles
+jupyter==1.0.0
+dvc==2.38.0

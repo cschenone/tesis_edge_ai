@@ -1,0 +1,17 @@
+=== INSTALACIÓN GIT 2.39.1 ===
+Archivo: Git-2.39.1-64-bit.exe
+
+PASOS DE INSTALACIÓN:
+1. Ejecutar como Administrador
+2. Siguiente > Siguiente (configuración por defecto)
+3. MARCAR todas las opciones de integración
+4. Terminar instalación
+
+VERIFICACIÓN:
+- Abrir PowerShell
+- Escribir: git --version
+- Debe mostrar: git version 2.39.1.windows.1
+
+NOTAS:
+- Reiniciar PowerShell después de instalar
+- Git Bash estará disponible en el menú inicio

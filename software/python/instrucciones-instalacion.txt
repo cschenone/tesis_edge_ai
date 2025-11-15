@@ -1,0 +1,18 @@
+=== INSTALACIÓN PYTHON 3.10.11 ===
+Archivo: python-3.10.11-amd64.exe
+
+⚠️ PASO CRÍTICO:
+- MARCAR "Add Python 3.10 to PATH"
+
+PASOS COMPLETOS:
+1. Ejecutar instalador
+2. MARCAR "Add Python to PATH" ✅
+3. Click "Install Now"
+4. Esperar finalización
+
+VERIFICACIÓN:
+- PowerShell: python --version
+- Debe mostrar: Python 3.10.11
+
+NOTAS:
+- Versión específica para compatibilidad con PyTorch/TensorFlow
